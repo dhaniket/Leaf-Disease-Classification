@@ -16,8 +16,7 @@ if file is None:
 else:
     image = Image.open(file)
     nimg = np.array(image)
-    img = cv2.cvtColor(nimg, cv2.COLOR_RGB2BGR)
-    img_array = tf.expand_dims(img,0)
+    img_array = tf.expand_dims(nimg,0)
     st.image(image, use_column_width=True)
     predictions = model.predict(img_array)
     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
