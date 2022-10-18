@@ -14,6 +14,8 @@ if file is None:
     st.text("Please upload an image file")
 else:
     image = Image.open(file)
+    new=(256,256)
+    image = image.resize(new)
     nimg = np.array(image)
     img_array = tf.expand_dims(nimg,0)
     st.image(image, use_column_width=True)
